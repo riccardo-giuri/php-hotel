@@ -36,6 +36,8 @@
             'distance_to_center' => 50
         ],
     ];
+
+    $col_titles = array_keys($hotels[0]);
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +52,40 @@
 </head>
 
 <body>
-      
+    <div class="container">
+        <h1 class="text-center">PHP-Hotels</h1>
+
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <?php
+                        foreach ($col_titles as $title) {
+                    ?>
+
+                    <th><?php echo $title ?></th>
+
+                    <?php
+                        }
+                    ?>          
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                    foreach ($hotels as $hotel) {
+                ?>
+                    <tr>
+                        <td><?php echo $hotel['name'] ?></td>
+                        <td><?php echo $hotel['description'] ?></td>
+                        <td><?php echo $hotel['parking'] ? 'Si' : 'No' ?></td>
+                        <td><?php echo $hotel['vote'] ?></td>
+                        <td><?php echo $hotel['distance_to_center'] ?></td>      
+                    </tr>
+                <?php
+                    }
+                ?> 
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
